@@ -12,7 +12,7 @@ class UsersDeleteController
     {
         $user = User::where('id', $request->id)->first();
         if ($user->delete()) {
-            app()->route->redirect('/admin/division');
+            app()->route->redirect('/admin/user');
         }
     }
 }

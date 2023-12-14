@@ -11,6 +11,22 @@
         <label for="gender"><input type="text" name="gender" placeholder="Пол"></label>
         <label for="address"><input type="text" name="address" placeholder="Адресс"></label>
         <label for="date"><input type="date" name="date" placeholder="Дата рождения"></label>
+<!--       должности -->
+        <label for="id_position">
+            <select id="id_position" name="id_position">
+                <?php foreach ($positions as $position) { ?>
+                    <option value="<?= $position->id ?>"><?= $position->title ?></option>
+                <?php } ?>
+            </select>
+        </label>
+<!--        подразделения-->
+        <label for="id_division">
+            <select id="id_division" name="id_division">
+                <?php foreach ($divisions as $division) { ?>
+                    <option value="<?= $division->id ?>"><?= $division->title ?></option>
+                <?php } ?>
+            </select>
+        </label>
         <button>Создать</button>
     </form>
 </div>
