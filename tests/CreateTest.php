@@ -87,7 +87,7 @@ class CreateTest extends TestCase
         //Создаем экземпляр приложения
         $settings = include $_SERVER['DOCUMENT_ROOT'] . '/server/config/app.php';
 
-        $GLOBALS['app'] = new Src\Application((array) $settings);
+        $GLOBALS['app'] = new Src\Application((array)$settings);
 
         //Глобальная функция для доступа к объекту приложения
         if (!function_exists('app')) {

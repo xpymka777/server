@@ -18,7 +18,13 @@ class User extends Model implements IdentityInterface
         'password',
         'role',
         'token',
-        'img'
+        'img',
+        'surname',
+        'name',
+        'patronymic',
+        'gender',
+        'date',
+        'address'
     ];
 
     protected static function booted()
@@ -54,21 +60,28 @@ class User extends Model implements IdentityInterface
         return $this->belongsTo(Role::class, 'role', 'id');
     }
 
+    public function getPosition(): BelongsTo
+    {
+        return $this->belongsTo(Position::class, 'id_position', 'id');
+    }
+
     //Есть ли роль текущего пользователя в массиве ролей
     public function hasRole($roles): bool
     {
         return in_array($this->getRole->title, $roles);
     }
+
     public function getImg()
     {
         $img = explode('/', app()->auth::user()->img);
         return $img[4];
     }
+
     public function getToken()
     {
-        if(app()->auth::user()->token){
+        if (app()->auth::user()->token) {
             $token = app()->auth::user()->token;
-        }else{
+        } else {
             $token = null;
         }
         return $token;

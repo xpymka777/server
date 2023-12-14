@@ -3,7 +3,6 @@
 namespace Providers;
 
 use Src\Provider\AbstractProvider;
-use Src\Route;
 
 class AuthProvider extends AbstractProvider
 {

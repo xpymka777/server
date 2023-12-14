@@ -13,7 +13,7 @@ class Application
 
     public function __construct(array $settings = [])
     {
-        $this->addProviders($settings['providers']??[]);
+        $this->addProviders($settings['providers'] ?? []);
         $this->registerProviders();
         $this->bootProviders();
     }

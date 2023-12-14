@@ -1,4 +1,5 @@
 <?php
+
 namespace Middlewares;
 
 use Src\Request;

@@ -35,6 +35,7 @@ class Settings
     {
         return '/' . $this->path['views'] ?? '';
     }
+
     public function getRoutePath(): string
     {
         return '/' . $this->path['routes'] ?? '';

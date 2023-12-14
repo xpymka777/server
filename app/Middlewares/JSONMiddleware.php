@@ -2,9 +2,7 @@
 
 namespace Middlewares;
 
-use Exception;
 use Src\Request;
-use Src\Session;
 use function Collect\collection;
 
 class JSONMiddleware

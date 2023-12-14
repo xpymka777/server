@@ -5,20 +5,16 @@ namespace Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Role extends Model
+class DivisionsDisciplines extends Model
 {
     use HasFactory;
 
     public $timestamps = false;
 
-    protected $fillable = [
-        'title',
-    ];
-
     protected static function booted()
     {
-        static::created(function ($role) {
-            $role->save();
+        static::created(function ($divisionsDisciplines) {
+            $divisionsDisciplines->save();
         });
     }
 }
