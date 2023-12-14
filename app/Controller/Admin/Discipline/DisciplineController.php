@@ -8,6 +8,7 @@ use Src\View;
 
 class DisciplineController
 {
+    //просто отображает мне данные
     public function discipline(): string
     {
         $disciplines = Discipline::all();

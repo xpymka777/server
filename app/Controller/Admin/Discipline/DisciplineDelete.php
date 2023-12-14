@@ -8,6 +8,7 @@ use Src\Request;
 
 class DisciplineDelete
 {
+    //удаляет выбранное
     public function deleteDiscipline(Request $request)
     {
         $discipline = Discipline::where('id', $request->id)->first();

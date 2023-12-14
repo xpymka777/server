@@ -13,10 +13,12 @@ class DisciplineUpdate
     {
         $discipline = Discipline::all();
         if ($request->method === 'GET') {
+            //если метод GET, то просто отображает
             $discipline = Discipline::where('id', $request->id)->first();
         }
 
         if ($request->method === 'POST') {
+            //если POST, проверяет через валидаторы по правилам
             $validator = new Validator($request->all(), [
                 'title' => ['required'],
 //                'id' => ['required'],
@@ -29,6 +31,7 @@ class DisciplineUpdate
                     ['message' => json_encode($validator->errors(), JSON_UNESCAPED_UNICODE), 'discipline' => $discipline]);
             }
             if (Discipline::where('id', $request->id)->update([
+                //обновляет отправленные данные
                 'csrf_token' => $request->csrf_token,
                 'title' => $request->title,
 //                'id' => $request->type,

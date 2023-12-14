@@ -27,12 +27,19 @@ Route::add(['GET', 'POST'], '/admin/delete-division', [\Controller\Admin\Divisio
     ->middleware('auth', 'can:admin');
 
 //discipline
-Route::add('GET', '/admin/discipline', [\Controller\Admin\Discipline\DisciplineController::class, 'discipline']);
-Route::add(['GET', 'POST'], '/admin/create-discipline', [\Controller\Admin\Discipline\DisciplineCreate::class, 'createDiscipline']);
-Route::add(['GET', 'POST'], '/admin/delete-discipline', [\Controller\Admin\Discipline\DisciplineDelete::class, 'deleteDiscipline']);
-Route::add(['GET', 'POST'], '/admin/update-discipline', [\Controller\Admin\Discipline\DisciplineUpdate::class, 'updateDiscipline']);
+Route::add('GET', '/admin/discipline', [\Controller\Admin\Discipline\DisciplineController::class, 'discipline'])
+    ->middleware('auth', 'can:admin');
+Route::add(['GET', 'POST'], '/admin/create-discipline', [\Controller\Admin\Discipline\DisciplineCreate::class, 'createDiscipline'])
+    ->middleware('auth', 'can:admin');
+Route::add(['GET', 'POST'], '/admin/delete-discipline', [\Controller\Admin\Discipline\DisciplineDelete::class, 'deleteDiscipline'])
+    ->middleware('auth', 'can:admin');
+Route::add(['GET', 'POST'], '/admin/update-discipline', [\Controller\Admin\Discipline\DisciplineUpdate::class, 'updateDiscipline'])
+    ->middleware('auth', 'can:admin');
 
 //users
-Route::add('GET', '/admin/user', [\Controller\Admin\Users\UsersController::class, 'users']);
-Route::add(['GET', 'POST'], '/admin/create-user', [\Controller\Admin\Users\UsersCreateController::class, 'createUser']);
-Route::add(['GET', 'POST'], '/admin/delete-user', [\Controller\Admin\Users\UsersDeleteController::class, 'deleteUser']);
+Route::add('GET', '/admin/user', [\Controller\Admin\Users\UsersController::class, 'users'])
+    ->middleware('auth', 'can:admin');
+Route::add(['GET', 'POST'], '/admin/create-user', [\Controller\Admin\Users\UsersCreateController::class, 'createUser'])
+    ->middleware('auth', 'can:admin');
+Route::add(['GET', 'POST'], '/admin/delete-user', [\Controller\Admin\Users\UsersDeleteController::class, 'deleteUser'])
+    ->middleware('auth', 'can:admin');
