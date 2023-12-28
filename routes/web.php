@@ -25,15 +25,23 @@ Route::add(['GET', 'POST'], '/admin/update-division', [\Controller\Admin\Divisio
     ->middleware('auth', 'can:admin');
 Route::add(['GET', 'POST'], '/admin/delete-division', [\Controller\Admin\Division\DivisionDeleteController::class, 'deleteDivision'])
     ->middleware('auth', 'can:admin');
+Route::add('GET', '/admin/view-division', [\Controller\Admin\Division\DivisionController::class, 'view'])
+    ->middleware('auth', 'can:admin');
 
 //discipline
-Route::add('GET', '/admin/discipline', [\Controller\Admin\Discipline\DisciplineController::class, 'discipline'])
+Route::add(['GET','POST'], '/admin/discipline', [\Controller\Admin\Discipline\DisciplineController::class, 'discipline'])
     ->middleware('auth', 'can:admin');
+//Search
+//Route::add('POST', '/admin/discipline', [\Controller\Admin\Discipline\DisciplineController::class, 'discipline'])
+//    ->middleware('auth', 'can:admin');
+
 Route::add(['GET', 'POST'], '/admin/create-discipline', [\Controller\Admin\Discipline\DisciplineCreate::class, 'createDiscipline'])
     ->middleware('auth', 'can:admin');
 Route::add(['GET', 'POST'], '/admin/delete-discipline', [\Controller\Admin\Discipline\DisciplineDelete::class, 'deleteDiscipline'])
     ->middleware('auth', 'can:admin');
 Route::add(['GET', 'POST'], '/admin/update-discipline', [\Controller\Admin\Discipline\DisciplineUpdate::class, 'updateDiscipline'])
+    ->middleware('auth', 'can:admin');
+Route::add('GET', '/admin/view-discipline', [\Controller\Admin\Discipline\DisciplineController::class, 'view'])
     ->middleware('auth', 'can:admin');
 
 //users
@@ -41,5 +49,9 @@ Route::add('GET', '/admin/user', [\Controller\Admin\Users\UsersController::class
     ->middleware('auth', 'can:admin');
 Route::add(['GET', 'POST'], '/admin/create-user', [\Controller\Admin\Users\UsersCreateController::class, 'createUser'])
     ->middleware('auth', 'can:admin');
+Route::add(['GET', 'POST'], '/admin/update-user', [\Controller\Admin\Users\UsersUpdateController::class, 'updateUser'])
+    ->middleware('auth', 'can:admin');
 Route::add(['GET', 'POST'], '/admin/delete-user', [\Controller\Admin\Users\UsersDeleteController::class, 'deleteUser'])
+    ->middleware('auth', 'can:admin');
+Route::add('GET', '/admin/view-user', [\Controller\Admin\Users\UsersController::class, 'view'])
     ->middleware('auth', 'can:admin');

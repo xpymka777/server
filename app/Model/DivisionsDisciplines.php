@@ -10,7 +10,10 @@ class DivisionsDisciplines extends Model
     use HasFactory;
 
     public $timestamps = false;
-
+    protected $fillable = [
+        'id_division',
+        'id_discipline'
+    ];
     protected static function booted()
     {
         static::created(function ($divisionsDisciplines) {

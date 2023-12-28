@@ -24,7 +24,8 @@ class User extends Model implements IdentityInterface
         'patronymic',
         'gender',
         'date',
-        'address'
+        'address',
+        'id_position'
     ];
 
     protected static function booted()

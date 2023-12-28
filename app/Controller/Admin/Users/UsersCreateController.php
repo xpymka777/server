@@ -16,7 +16,6 @@ class UsersCreateController
     {
         $positions = Position::all();
         $divisions = Division::all();
-        var_dump($request);
         $divisionUsers = Division::all();
         if ($request->method === 'POST') {
             $validator = new Validator($request->all(), [
@@ -34,7 +33,7 @@ class UsersCreateController
             ]);
             if ($validator->fails()) {
                 return new View('site.admin.users.create',
-                    ['message' => json_encode($validator->errors(), JSON_UNESCAPED_UNICODE)]);
+                    ['message' => json_encode($validator->errors(), JSON_UNESCAPED_UNICODE), ['positions' => $positions, 'divisions'=>$divisions,'divisionUsers' => $divisionUsers]]);
 
             }
             if (User::create([
@@ -47,7 +46,7 @@ class UsersCreateController
                 'gender' => $request->gender,
                 'address' => $request->address,
                 'date' => $request->date,
-                'position' =>$request->id_position,
+                'id_position' =>$request->id_position,
             ]))
             {
 

@@ -11,7 +11,10 @@ class DivisionsUsers extends Model
     use HasFactory;
 
     public $timestamps = false;
-
+    protected $fillable = [
+        'id_division',
+        'id_user'
+    ];
     protected static function booted()
     {
         static::created(function ($divisionsUsers) {

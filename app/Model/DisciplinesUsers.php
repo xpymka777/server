@@ -11,7 +11,10 @@ class DisciplinesUsers extends Model
     use HasFactory;
 
     public $timestamps = false;
-
+    protected $fillable = [
+        'id_discipline',
+        'id_user',
+    ];
     protected static function booted()
     {
         static::created(function ($disciplinesUsers) {

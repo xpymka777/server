@@ -19,14 +19,6 @@
                 <?php } ?>
             </select>
         </label>
-<!--        подразделения-->
-        <label for="id_division">
-            <select id="id_division" name="id_division">
-                <?php foreach ($divisions as $division) { ?>
-                    <option value="<?= $division->id ?>"><?= $division->title ?></option>
-                <?php } ?>
-            </select>
-        </label>
         <button>Создать</button>
     </form>
 </div>
